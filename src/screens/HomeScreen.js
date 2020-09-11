@@ -23,55 +23,15 @@ const HomeScreen = () => {
       <ScrollIndicator />
 
       <CardContainer variants={container} animate="show" initial="hidden">
-        <Card
-          title={`See opportunity not failure`}
-          subtitle={`lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet `}
-          number={1}
-          backgroundColor="#000"
-          textColor="#fff"
-        />
-        <Card
-          title={`Learn from your mistakes`}
-          subtitle={`lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet `}
-          number={2}
-          backgroundColor="#000"
-          textColor="#fff"
-        />
-        <Card
-          title={`Failure is not a waste of time`}
-          subtitle={`lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet `}
-          number={3}
-          backgroundColor="#000"
-          textColor="#fff"
-        />
-        <Card
-          title={`Be kind`}
-          subtitle={`lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet `}
-          number={4}
-          backgroundColor="#000"
-          textColor="#fff"
-        />
-        <Card
-          title={`Create`}
-          subtitle={`lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet `}
-          number={5}
-          backgroundColor="#000"
-          textColor="#fff"
-        />
-        <Card
-          title={`Fuck yesterday`}
-          subtitle={`lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet `}
-          number={6}
-          backgroundColor="#000"
-          textColor="#fff"
-        />
-        <Card
-          title={`Balance your work and personal life`}
-          subtitle={`lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet `}
-          number={7}
-          backgroundColor="#000"
-          textColor="#fff"
-        />
+        {data.map((item, i) => (
+          <Card
+            title={item.title}
+            subtitle={item.subtitle}
+            number={i + 1}
+            backgroundColor={item.backgroundColor}
+            textColor={item.textColor}
+          />
+        ))}
       </CardContainer>
     </Container>
   );
@@ -84,3 +44,48 @@ const CardContainer = styled(motion.div)`
   flex-direction: row;
   flex-wrap: wrap;
 `;
+
+const data = [
+  {
+    title: "See opportunity not failure",
+    subtitle:
+      "lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet",
+    backgroundColor: "#FA8184",
+    textColor: "#FFF8D6",
+  },
+  {
+    title: "Failure is not a waste of time",
+    subtitle:
+      "lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet",
+    backgroundColor: "#038F97",
+    textColor: "#FFF8D6",
+  },
+  {
+    title: "See opportunity not failure",
+    subtitle:
+      "lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet",
+    backgroundColor: "#C9E4DC",
+    textColor: "#F53763",
+  },
+  {
+    title: "See opportunity not failure",
+    subtitle:
+      "lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet",
+    backgroundColor: "#F9F7E6",
+    textColor: "#35C1AC",
+  },
+  {
+    title: "See opportunity not failure",
+    subtitle:
+      "lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet",
+    backgroundColor: "#FFB694",
+    textColor: "#FFF8D6",
+  },
+  {
+    title: "See opportunity not failure",
+    subtitle:
+      "lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet",
+    backgroundColor: "#D8667F",
+    textColor: "#F9DF8A",
+  },
+];

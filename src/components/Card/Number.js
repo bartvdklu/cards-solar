@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-const Number = ({ number }) => {
-  return <NumberContainer>{number} </NumberContainer>;
+const Number = ({ number, borderColor }) => {
+  return <NumberContainer borderColor={borderColor}>{number} </NumberContainer>;
 };
 
 export default Number;
@@ -14,5 +14,5 @@ const NumberContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid #fff;
+  border: 2px solid ${(props) => props.borderColor};
 `;

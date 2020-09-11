@@ -19,11 +19,9 @@ const Card = ({ title, subtitle, number, backgroundColor, textColor }) => {
       backgroundColor={backgroundColor}
       textColor={textColor}
       variants={cardMotion}
-      // initial="hidden"
-      // animate="show"
       transition={{ duration: 0.5 }}
     >
-      <Number number={number} />
+      <Number number={number} borderColor={textColor} />
       <HeaderWrapper>
         <H3>{title}</H3>
       </HeaderWrapper>
@@ -42,6 +40,8 @@ const CardWrapper = styled(motion.div)`
   padding: 30px 30px 60px 30px;
   flex-basis: 25%;
   margin: 8px;
+  flex-grow: 0;
+  flex-shrink: 1;
 `;
 
 const HeaderWrapper = styled.div`
