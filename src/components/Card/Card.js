@@ -1,25 +1,30 @@
 import React from "react";
 import styled from "styled-components";
-// import { GlobalStyle } from "../../styles/styles";
 import { Number } from "./index";
-import { motion } from "framer-motion";
+import TinderCard from "react-tinder-card";
 
-const cardMotion = {
-  hidden: { y: -30, opacity: 0 },
-  show: {
-    y: 0,
-    opacity: 1,
-    transtition: { type: "spring", damping: 300, velocity: 0.1 },
-  },
-};
+const Card = ({
+  title,
+  subtitle,
+  number,
+  backgroundColor,
+  textColor,
+  setShowConfetti,
+  rotate,
+}) => {
+  const onSwipe = (direction) => {
+    direction === "right" && setShowConfetti(true);
+    setTimeout(() => {
+      setShowConfetti(false);
+    }, 100);
+  };
 
-const Card = ({ title, subtitle, number, backgroundColor, textColor }) => {
   return (
     <CardWrapper
+      onSwipe={onSwipe}
       backgroundColor={backgroundColor}
       textColor={textColor}
-      variants={cardMotion}
-      transition={{ duration: 0.5 }}
+      rotate={rotate}
     >
       <Number number={number} borderColor={textColor} />
       <HeaderWrapper>
@@ -32,16 +37,17 @@ const Card = ({ title, subtitle, number, backgroundColor, textColor }) => {
 
 export default Card;
 
-const CardWrapper = styled(motion.div)`
+const CardWrapper = styled(TinderCard)`
+  will-change: transform;
   background-color: ${(props) => props.backgroundColor};
   color: ${(props) => props.textColor};
   border-radius: 23px;
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
   padding: 30px 30px 60px 30px;
-  flex-basis: 25%;
-  margin: 8px;
-  flex-grow: 0;
-  flex-shrink: 1;
+  width: 280px;
+  height: 390px;
+  position: absolute;
+  transform: rotate(${(props) => props.rotate}deg);
 `;
 
 const HeaderWrapper = styled.div`
