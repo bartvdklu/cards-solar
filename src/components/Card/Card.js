@@ -22,6 +22,7 @@ const Card = ({
   return (
     <CardWrapper
       onSwipe={onSwipe}
+      preventSwipe={["up", "down"]}
       backgroundColor={backgroundColor}
       textColor={textColor}
       rotate={rotate}
