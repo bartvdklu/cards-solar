@@ -26,7 +26,6 @@ const HomeScreen = () => {
       {/* <H1>Personal Manifesto</H1>
       <H2>Mike Hendriks</H2>
       <ScrollIndicator /> */}
-
       {/* <CardContainer variants={container} animate="show" initial="hidden"> */}
       <CardContainer>
         {data.map((item, i) => (
@@ -42,6 +41,11 @@ const HomeScreen = () => {
           />
         ))}
       </CardContainer>
+      <StyledSignagute>
+        Mike <br />
+        Hendriks <br />
+        <span>- 28-09-2020</span>
+      </StyledSignagute>
       <StyledConfetti active={showConfetti} config={confettiConfig} />
     </Container>
   );
@@ -53,12 +57,26 @@ const CardContainer = styled(motion.div)`
   position: absolute;
   top: calc(50% - 240px);
   left: calc(50% - 140px);
+  z-index: 1;
 `;
 
 const StyledConfetti = styled(Confetti)`
   position: fixed !important;
   right: 0;
   top: 50%;
+`;
+
+const StyledSignagute = styled.div`
+  position: fixed !important;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  font-size: 26px;
+
+  span {
+    font-size: 12px;
+  }
 `;
 
 const data = [
