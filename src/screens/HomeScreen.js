@@ -23,10 +23,6 @@ const HomeScreen = () => {
   const [showConfetti, setShowConfetti] = useState(false);
   return (
     <Container>
-      {/* <H1>Personal Manifesto</H1>
-      <H2>Mike Hendriks</H2> */}
-      {/* <ScrollIndicator /> */}
-      {/* <CardContainer variants={container} animate="show" initial="hidden"> */}
       <CardContainer>
         {data.map((item, i) => (
           <Card
@@ -42,9 +38,10 @@ const HomeScreen = () => {
         ))}
       </CardContainer>
       <StyledSignagute>
-        Mike <br />
-        Hendriks <br />
-        <span>- 28-09-2020</span>
+        <a href="https://thisislive.group">
+          Shuffle
+          <br /> the deck!
+        </a>
       </StyledSignagute>
       <StyledConfetti active={showConfetti} config={confettiConfig} />
     </Container>
@@ -54,10 +51,11 @@ const HomeScreen = () => {
 export default HomeScreen;
 
 const CardContainer = styled(motion.div)`
-  position: absolute;
-  top: calc(50% - 240px);
-  left: calc(50% - 140px);
-  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 999;
 `;
 
 const StyledConfetti = styled(Confetti)`
@@ -68,9 +66,6 @@ const StyledConfetti = styled(Confetti)`
 
 const StyledSignagute = styled.div`
   position: fixed !important;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   z-index: 0;
   font-size: 26px;
 

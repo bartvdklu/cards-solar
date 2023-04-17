@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from 'styled-components';
 
 // global style
 export const GlobalStyle = createGlobalStyle`
@@ -25,14 +25,14 @@ export const GlobalStyle = createGlobalStyle`
 
 // Titles
 export const H1 = styled.h1`
-  font-family: "circularBold", sans-serif;
-  font-size: 75px;
+  font-family: 'circularBold', sans-serif;
+  font-size: 50px;
   margin-bottom: 15px;
   color: #292929;
   margin-left: 30px;
 `;
 export const H2 = styled.h2`
-  font-size: 30px;
+  font-size: 15px;
   margin: 0 0 35px 0;
   color: #656565;
   margin-left: 30px;
@@ -42,5 +42,10 @@ export const H2 = styled.h2`
 // Container
 export const Container = styled.div`
   margin: 0 auto;
-  width: 1200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
 `;
