@@ -10,7 +10,6 @@ const Card = ({
   backgroundColor,
   textColor,
   setShowConfetti,
-  rotate,
 }) => {
   const onSwipe = (direction) => {
     direction === 'right' && setShowConfetti(true);
@@ -40,7 +39,7 @@ const Card = ({
       preventSwipe={['up', 'down']}
       backgroundColor={backgroundColor}
       textColor={textColor}
-      rotate={rotate}
+      rotate={Math.floor(Math.random() * 21) - 10}
     >
       {/* <Number number={number} borderColor={textColor} /> */}
       <HeaderWrapper>

@@ -64,7 +64,6 @@ const HomeScreen = () => {
             backgroundColor={item.backgroundColor}
             textColor="#fff"
             setShowConfetti={setShowConfetti}
-            rotate={Math.floor(Math.random() * 21) - 10}
           />
         ))}
       </CardContainer>
