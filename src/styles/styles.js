@@ -20,6 +20,9 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-family: 'circularRegular', sans-serif;
     color: #1a1b1f;
+    background-image: url('artboard1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 `;
 
@@ -47,5 +50,6 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 100vh;
+  max-height: 100svh;
+  height: 100dvh;
 `;
