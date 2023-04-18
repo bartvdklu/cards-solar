@@ -6,6 +6,10 @@ import { GlobalStyle } from './styles/styles';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import Stats from './screens/Stats';
+
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
@@ -22,10 +26,13 @@ firebase.firestore();
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <GlobalStyle />
-      <HomeScreen />
-    </>
+      <Routes>
+        <Route path="/" element={<HomeScreen />} />
+        <Route path="/stats" element={<Stats />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

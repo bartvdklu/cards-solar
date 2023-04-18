@@ -41,7 +41,6 @@ const Card = ({
       textColor={textColor}
       rotate={Math.floor(Math.random() * 21) - 10}
     >
-      {/* <Number number={number} borderColor={textColor} /> */}
       <HeaderWrapper>
         <H3>{title}</H3>
       </HeaderWrapper>
