@@ -20,9 +20,10 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-family: 'circularRegular', sans-serif;
     color: #1a1b1f;
-    background-image: url('artboard1.png');
+    background-image: url('Artboard1.svg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center center;
   }
 `;
 

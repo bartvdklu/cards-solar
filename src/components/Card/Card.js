@@ -2,8 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 // import { Number } from './index';
 import TinderCard from 'react-tinder-card';
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/firestore';
 
 const Card = ({
   id,

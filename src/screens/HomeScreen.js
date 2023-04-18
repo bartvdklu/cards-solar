@@ -99,6 +99,9 @@ const StyledSignagute = styled.div`
 `;
 
 const StyledBtn = styled.button`
-  background-color: transparent;
-  border: none;
+  background-color: #5e5ef0;
+  border: 1px solid #000;
+  color: #fff;
+  padding: 10px 20px;
+  text-transform: uppercase;
 `;
