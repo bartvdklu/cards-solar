@@ -1,4 +1,3 @@
-import Card from "./Card";
-import Number from "./Number";
+import Card from './Card';
 
-export { Card, Number };
+export { Card };

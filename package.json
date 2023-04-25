@@ -3,18 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-spring/web": "^9.7.2",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "bootstrap": "^5.2.3",
     "env": "^0.0.2",
     "firebase": "^9.19.1",
     "framer-motion": "^2.6.8",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.7.4",
+    "react-confetti-explosion": "^2.1.2",
+    "react-dom": "^18.2.0",
     "react-dom-confetti": "^0.2.0",
     "react-router-dom": "^6.10.0",
-    "react-scripts": "3.4.3",
-    "react-tinder-card": "^1.2.1",
+    "react-scripts": "5.0.1",
+    "react-tinder-card": "^1.6.2",
+    "scroll-lock": "^2.1.5",
     "styled-components": "^5.2.0"
   },
   "scripts": {
@@ -37,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-plugin-react-hooks": "^4.6.0"
   }
 }

@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-// import { Number } from './index';
 import TinderCard from 'react-tinder-card';
+
+// import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
 
 const Card = ({
   id,
@@ -9,13 +11,13 @@ const Card = ({
   subtitle,
   backgroundColor,
   textColor,
-  setShowConfetti,
+  setShowConfetti
 }) => {
   const onSwipe = (direction) => {
     direction === 'right' && setShowConfetti(true);
     setTimeout(() => {
       setShowConfetti(false);
-    }, 100);
+    }, 1000);
 
     //*IMPORTANT: This is where you can add the logic to update the countSkipped or countFinished in the database, WORKING but commented out for now
 
@@ -39,7 +41,6 @@ const Card = ({
       preventSwipe={['up', 'down']}
       backgroundColor={backgroundColor}
       textColor={textColor}
-      rotate={Math.floor(Math.random() * 21) - 10}
     >
       <HeaderWrapper>
         <H3>{title}</H3>
@@ -62,10 +63,10 @@ const CardWrapper = styled(TinderCard)`
   border-radius: 23px;
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
   padding: 30px 30px 60px 30px;
-  width: 55%;
-  height: 45%;
+  width: 75%;
+  height: 60%;
   position: absolute;
-  transform: rotate(${(props) => props.rotate}deg);
+  transform: rotate(${Math.floor(Math.random() * 21) - 10}deg);
   display: flex;
   flex-direction: column;
   justify-content: center;

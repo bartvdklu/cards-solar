@@ -9,6 +9,8 @@ import 'firebase/compat/firestore';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Stats from './screens/Stats';
+import Login from './screens/auth/Login';
+import SignUp from './screens/auth/SignUp';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -31,6 +33,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomeScreen />} />
         <Route path="/stats" element={<Stats />} />
+        <Route path="/login" element={<Login/>} />
+        <Route path='/signin' element={<SignUp/>} />
       </Routes>
     </BrowserRouter>
   );

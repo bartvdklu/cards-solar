@@ -3,28 +3,17 @@ import { Card } from '../components/Card';
 import { Container } from '../styles/styles';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import Confetti from 'react-dom-confetti';
+import ConfettiExplosion from 'react-confetti-explosion';
+
+import scrollLock from 'scroll-lock';
 
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 
-const confettiConfig = {
-  angle: 90,
-  spread: 360,
-  startVelocity: 40,
-  elementCount: 100,
-  dragFriction: 0.12,
-  duration: 3000,
-  stagger: 3,
-  width: '5px',
-  height: '10px',
-  perspective: '500px',
-  colors: ['#a864fd', '#29cdff', '#78ff44', '#ff718d', '#fdff6a'],
-};
-
 const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
 
 const HomeScreen = () => {
+  scrollLock.disablePageScroll();
   const [showConfetti, setShowConfetti] = useState(false);
   const [cards, setCards] = useState([]);
   const [shuffledCards, setShuffledCards] = useState([]);
@@ -41,11 +30,12 @@ const HomeScreen = () => {
         .get()
         .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
-            setCards((cards) => [...cards, doc.data()]);
+            if (!cards.includes(doc.data())) {
+              setCards((cards) => [...cards, doc.data()]);
+            }
           });
         });
     }
-    console.log(cards);
   }, [cards]);
 
   useEffect(() => {
@@ -70,7 +60,7 @@ const HomeScreen = () => {
       <StyledSignagute>
         <StyledBtn onClick={refreshPage}>Shuffle the deck!</StyledBtn>
       </StyledSignagute>
-      <StyledConfetti active={showConfetti} config={confettiConfig} />
+      {showConfetti && <ConfettiExplosion zIndex={99999} duration={1000} />}
     </Container>
   );
 };
@@ -85,11 +75,11 @@ const CardContainer = styled(motion.div)`
   z-index: 999;
 `;
 
-const StyledConfetti = styled(Confetti)`
-  position: fixed !important;
-  right: 0;
-  top: 50%;
-`;
+// const StyledConfetti = styled(Confetti)`
+//   position: fixed !important;
+//   right: 0;
+//   top: 50%;
+// `;
 
 const StyledSignagute = styled.div`
   position: fixed !important;
