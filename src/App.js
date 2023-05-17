@@ -2,15 +2,18 @@ import React from 'react';
 import { HomeScreen } from './screens/index';
 import { GlobalStyle } from './styles/styles';
 
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 // Import the functions you need from the SDKs you need
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
-
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import 'firebase/compat/auth';
 
 import Stats from './screens/Stats';
 import Login from './screens/auth/Login';
-import SignUp from './screens/auth/SignUp';
+import CardDashboard from './screens/admin/CardDashboard';
+import AddCard from './screens/admin/AddCard';
+import EditCard from './screens/admin/EditCard';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -25,6 +28,7 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.firestore();
+firebase.auth();
 
 function App() {
   return (
@@ -32,9 +36,13 @@ function App() {
       <GlobalStyle />
       <Routes>
         <Route path="/" element={<HomeScreen />} />
+        <Route path="/admin">
+          <Route index element={<CardDashboard />} />
+          <Route path="add-card" element={<AddCard />} />
+          <Route path="edit-card/:id" element={<EditCard />} />
+        </Route>
         <Route path="/stats" element={<Stats />} />
         <Route path="/login" element={<Login/>} />
-        <Route path='/signin' element={<SignUp/>} />
       </Routes>
     </BrowserRouter>
   );

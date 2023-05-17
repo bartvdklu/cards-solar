@@ -10,6 +10,8 @@ import scrollLock from 'scroll-lock';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 
+import { ToastContainer } from 'react-toastify';
+
 const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
 
 const HomeScreen = () => {
@@ -44,6 +46,7 @@ const HomeScreen = () => {
 
   return (
     <Container>
+      <ToastContainer />
       <CardContainer>
         {shuffledCards.map((item, i) => (
           <Card

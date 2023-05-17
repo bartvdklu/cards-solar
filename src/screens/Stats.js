@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import styled from 'styled-components';
 
 import ProgressBar from 'react-bootstrap/ProgressBar';
@@ -6,12 +7,22 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
+import 'firebase/compat/auth';
+
 
 const Stats = () => {
   const [stats, setStats] = useState([]);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const navigate = useNavigate();
 
   function refreshPage() {
     window.location.reload(false);
+  }
+
+  function logOutFirebase() {
+    firebase.auth().signOut().then(() => {
+      console.log('signed out');
+    })
   }
 
   useEffect(() => {
@@ -26,9 +37,24 @@ const Stats = () => {
           });
         });
     }
-  });
+
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // User is signed in.
+        setLoggedIn(true);
+      } else {
+        // No user is signed in.
+        setLoggedIn(false);
+        navigate('/login');
+      }
+    })
+
+    console.log(loggedIn)
+  },);
 
   return (
+    <>
+    {loggedIn ? (
     <CleanContainer>
       <StyledH1>STATESTIEKEN</StyledH1>
       <ProgressContainer>
@@ -61,7 +87,10 @@ const Stats = () => {
         ))}
       </ProgressContainer>
       <StyledFloatingBtn onClick={refreshPage}>Refresh</StyledFloatingBtn>
+      <StyledFloatingBtn onClick={logOutFirebase}>Loguit</StyledFloatingBtn>
     </CleanContainer>
+    ) : <CleanContainer></CleanContainer>}
+    </>
   );
 };
 

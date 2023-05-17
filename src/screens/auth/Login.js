@@ -2,18 +2,34 @@ import React, { useEffect } from 'react';
 import { Container } from '../../styles/styles';
 // import styled from 'styled-components';
 
-// import firebase from 'firebase/compat/app';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import { StyledFirebaseAuth } from 'react-firebaseui';
 // import 'firebase/compat/firestore';
+
+const uiConfig = {
+  // Popup signin flow rather than redirect flow.
+  signInFlow: 'popup',
+  // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
+  signInSuccessUrl: '/admin',
+  // We will display Google and Facebook as auth providers.
+  signInOptions: [{
+    provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+    disableSignUp: true,
+  }
+  ]
+}
 
 const Login = () => {
 
   useEffect(() => {
-
+  
   });
+
 
   return (
     <Container>
-      
+      <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
     </Container>
   );
 };
