@@ -55,7 +55,7 @@ const HomeScreen = () => {
             id={item.id}
             key={i}
             backgroundColor={item.backgroundColor}
-            textColor="#fff"
+            textColor={item.textColor}
             setShowConfetti={setShowConfetti}
           />
         ))}
