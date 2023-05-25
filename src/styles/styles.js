@@ -25,6 +25,14 @@ export const GlobalStyle = createGlobalStyle`
     background-size: cover;
     background-position: center center;
   }
+
+  input {
+    width: 100%;
+  }
+
+  select {
+    width: 100%;
+  }
 `;
 
 // Titles
