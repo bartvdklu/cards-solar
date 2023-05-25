@@ -65,7 +65,7 @@ const CardTitle = styled.p`
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  max-width: 70%;
+  max-width: 64%;
 `;
 
 const IconBtn = styled.button`
