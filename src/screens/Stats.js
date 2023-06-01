@@ -19,12 +19,6 @@ const Stats = () => {
     window.location.reload(false);
   }
 
-  function logOutFirebase() {
-    firebase.auth().signOut().then(() => {
-      console.log('signed out');
-    })
-  }
-
   useEffect(() => {
     if (stats.length === 0) {
       firebase
@@ -87,8 +81,8 @@ const Stats = () => {
         ))}
       </ProgressContainer>
       <BtnContainer>
+        <StyledFloatingBtn onClick={() => navigate('/admin')}>Terug</StyledFloatingBtn>
         <StyledFloatingBtn onClick={refreshPage}>Refresh</StyledFloatingBtn>
-        <StyledFloatingBtn onClick={logOutFirebase}>Loguit</StyledFloatingBtn>
       </BtnContainer>
     </CleanContainer>
     ) : <CleanContainer></CleanContainer>}

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import styled from 'styled-components';
 
-import { FiPlus, FiLogOut } from "react-icons/fi";
+import { FiPlus, FiLogOut, FiTrendingUp } from "react-icons/fi";
 
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
@@ -63,6 +63,7 @@ function CardDashboard() {
       </CardItemsContainer>
       <BtnContainer>
         <FloatingBtn onClick={() => navigate('/admin/add-card')}><FiPlus/></FloatingBtn>
+        <FloatingBtn onClick={() => navigate('/stats')}><FiTrendingUp/></FloatingBtn>
         <FloatingBtn onClick={logOutFirebase}><FiLogOut/></FloatingBtn>
       </BtnContainer>
     </BGContainer>) : (<BGContainer></BGContainer>)}
