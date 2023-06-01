@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import styled from 'styled-components';
 
-import { FiPlus } from "react-icons/fi";
+import { FiPlus, FiLogOut } from "react-icons/fi";
 
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
@@ -45,6 +45,12 @@ function CardDashboard() {
     console.log(cards)
   }, [cards]);
 
+  function logOutFirebase() {
+    firebase.auth().signOut().then(() => {
+      console.log('signed out');
+    })
+  }
+
   return (
     <>
     {loggedIn ? (<BGContainer>
@@ -55,7 +61,10 @@ function CardDashboard() {
           <CardItemBlock title={item.subtitle} id={item.id} key={item.id} />
         ))}
       </CardItemsContainer>
-      <FloatingBtn onClick={() => navigate('/admin/add-card')}><FiPlus/></FloatingBtn>
+      <BtnContainer>
+        <FloatingBtn onClick={() => navigate('/admin/add-card')}><FiPlus/></FloatingBtn>
+        <FloatingBtn onClick={logOutFirebase}><FiLogOut/></FloatingBtn>
+      </BtnContainer>
     </BGContainer>) : (<BGContainer></BGContainer>)}
     </>
   )
@@ -94,15 +103,12 @@ const CardItemsContainer = styled.div`
 `;
 
 const FloatingBtn = styled.button`
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
   width: 50px;
   height: 50px;
   border-radius: 50%;
   background-color: #403131;
   color: #fff;
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: 700;
   border: none;
   outline: none;
@@ -112,3 +118,12 @@ const FloatingBtn = styled.button`
   align-items: center;
   margin: 0;
 `;
+
+const BtnContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  bottom: 20px;
+  width: calc(100vw - 40px);
+  gap: 20px;
+`

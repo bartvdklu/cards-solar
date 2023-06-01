@@ -50,7 +50,7 @@ const Stats = () => {
     })
 
     console.log(loggedIn)
-  },);
+  },[]);
 
   return (
     <>
@@ -86,8 +86,10 @@ const Stats = () => {
           </BarContainer>
         ))}
       </ProgressContainer>
-      <StyledFloatingBtn onClick={refreshPage}>Refresh</StyledFloatingBtn>
-      <StyledFloatingBtn onClick={logOutFirebase}>Loguit</StyledFloatingBtn>
+      <BtnContainer>
+        <StyledFloatingBtn onClick={refreshPage}>Refresh</StyledFloatingBtn>
+        <StyledFloatingBtn onClick={logOutFirebase}>Loguit</StyledFloatingBtn>
+      </BtnContainer>
     </CleanContainer>
     ) : <CleanContainer></CleanContainer>}
     </>
@@ -149,6 +151,12 @@ const StyledFloatingBtn = styled.button`
   color: #fff;
   padding: 10px 20px;
   text-transform: uppercase;
+`;
+
+const BtnContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
   position: fixed;
   bottom: 20px;
-`;
+  width: calc(100vw - 40px);
+`

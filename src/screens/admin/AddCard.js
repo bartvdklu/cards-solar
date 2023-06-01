@@ -101,7 +101,10 @@ const AddCard = () => {
       <CardContainer>
         <Card2 title={card.title} subtitle={card.subtitle} backgroundColor={card.backgroundColor} textColor={card.textColor} />
       </CardContainer>
-      {card.title !== '[Titel]' && card.subtitle !=='[Opdracht omschrijving]' && card.backgroundColor !== '#b3b3b3' && card.textColor !== '#d5d5d5' ? <SubmitBtn onClick={handleSubmit}>Voeg toe!</SubmitBtn> : <SubmitBtnDisabled>Voltooi eerst alle stappen!</SubmitBtnDisabled>}
+      <BtnContainer>
+        <BackBtn onClick={() => navigate('/admin')}>Terug</BackBtn>
+        {card.title !== '[Titel]' && card.subtitle !=='[Opdracht omschrijving]' && card.backgroundColor !== '#b3b3b3' && card.textColor !== '#d5d5d5' ? <SubmitBtn onClick={handleSubmit}>Voeg toe!</SubmitBtn> : <SubmitBtnDisabled>Voltooi eerst alle stappen!</SubmitBtnDisabled>}
+      </BtnContainer>
     </BGContainer>) : (<BGContainer></BGContainer>)}
     </>
   )
@@ -150,10 +153,7 @@ const CardContainer = styled.div`
 `;
 
 const SubmitBtn = styled.button`
-  align-self: center;
-  position: fixed;
-  bottom: 20px;
-  width: 80%;
+  width: 45%;
   height: 50px;
   background-color: #33cc49;
   border: 4px solid #168931;
@@ -162,14 +162,30 @@ const SubmitBtn = styled.button`
 `
 
 const SubmitBtnDisabled = styled.button`
-  align-self: center;
-  position: fixed;
-  bottom: 20px;
-  width: 80%;
+  width: 45%;
   height: 50px;
   background-color: #d5d5d5;
   border: 4px solid #b3b3b3;
   color: #b3b3b3;
   box-shadow: 0px 0px 8px 3px rgba(0,0,0,0.30);
   pointer-events: none;
+`
+
+const BackBtn = styled.button`
+  height: 50px;
+  background-color: #ff7add;
+  border: 4px solid #a03bad;
+  color: #fff;
+  width: 45%;
+  box-shadow: 0px 0px 8px 3px rgba(0,0,0,0.30);
+`
+
+const BtnContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 20px;
+  width: calc(100% - 40px);
 `
