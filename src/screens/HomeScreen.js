@@ -33,7 +33,7 @@ const HomeScreen = () => {
     startRef.style.zIndex = -1;
     startRef.style.opacity = 0;
 
-
+    setShuffledCards(shuffle(cards));
   }
 
   useEffect(() => {
@@ -50,10 +50,6 @@ const HomeScreen = () => {
           });
         });
     }
-  }, [cards]);
-
-  useEffect(() => {
-    setShuffledCards(shuffle(cards));
   }, [cards]);
 
   return (
