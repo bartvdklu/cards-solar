@@ -573,7 +573,7 @@ const cardObject = {
     "title": "Challenge"
   },
   "XpjAtI51kfYwCFs2ckX1": {
-    "backgroundColor": "#ff7add",
+    "backgroundColor": "#33cc49",
     "countFinished": 17,
     "countSkipped": 9,
     "id": "XpjAtI51kfYwCFs2ckX1",
