@@ -1051,7 +1051,6 @@ const HomeScreen = () => {
         <h1>HALLO TIJGER!</h1>
         <p>Dit is het spel om te spelen tijdens Solar Weekend 2023!</p>
         <p>Van spannende challenges tot grappige opdrachten tot je vrienden voorshut zetten. Begin snel en have fun!</p>
-        <p>PS. Klappen = Drinken!</p>
         <StyledFloatingBtn onClick={startGame}>GAS EROP!</StyledFloatingBtn>
       </StartContainer>
       <CardContainer id="cardcontainer">
