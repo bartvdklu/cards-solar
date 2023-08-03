@@ -2,42 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 import TinderCard from 'react-tinder-card';
 
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/firestore';
+// import firebase from 'firebase/compat/app';
+// import 'firebase/compat/firestore';
 
 const Card = ({
   id,
   title,
   subtitle,
   backgroundColor,
-  textColor,
-  setShowConfetti
+  textColor
 }) => {
-  const onSwipe = (direction) => {
-    direction === 'right' && setShowConfetti(true);
-    setTimeout(() => {
-      setShowConfetti(false);
-    }, 1000);
-
-    //*IMPORTANT: This is where you can add the logic to update the countSkipped or countFinished in the database, WORKING but commented out for now
-
-    direction === 'left' &&
-      firebase
-        .firestore()
-        .collection('cards')
-        .doc(id)
-        .update({ countSkipped: firebase.firestore.FieldValue.increment(1) });
-    direction === 'right' &&
-      firebase
-        .firestore()
-        .collection('cards')
-        .doc(id)
-        .update({ countFinished: firebase.firestore.FieldValue.increment(1) });
-  };
 
   return (
     <CardWrapper
-      onSwipe={onSwipe}
       preventSwipe={['up', 'down']}
       backgroundColor={backgroundColor}
       textColor={textColor}
